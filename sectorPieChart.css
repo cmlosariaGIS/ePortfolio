@@ -1,0 +1,270 @@
+.slideMenuStats {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+}
+
+.slideMenuStats.active {
+    width: 400px;
+}
+
+.slideMenuStats-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 15%;
+}
+
+
+.slideMenuStats-close {
+    position: absolute;
+    top: 80px;
+    right: 10px;
+    font-size: 20px;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+.dashboard-title {
+    font-weight: none;
+    font-size: 24px;
+    color: rgb(65, 65, 65);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    margin-top: 80px;
+}
+
+.project-count {
+    font-size: 80px;
+    color: rgb(65, 65, 65);
+    margin-top: 0px;
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.section-title {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#sectorChart {
+    width: 800%;
+    height: 400px;
+    /* Adjusted height for treemap visualization */
+}
+
+.chart-legend-sector, 
+.chart-legend-country {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.chart-legend-sector-item,
+.chart-legend-country-item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/*show more sector categories*/
+.show-more-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.show-more-button:hover {
+    background-color: #45a049;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.see-less-button {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    margin-top: 20px; /* Add top margin to separate it from legend */
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.see-less-button:hover {
+    background-color: #d32f2f;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.legend-color {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
+
+.countrylegend-color {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+}
+
+/* Divider style */
+.divider {
+    width: 20%;
+    border-top: 1px solid rgb(105, 105, 105);
+    /* Use border instead of background-color */
+    margin: 20px 0;
+}
+
+/* Title style */
+.chart-title {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: normal;
+    color: #777;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/*Project Value Tree Map Related*/
+.treemaptoggle-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.treemaptoggle-btn {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.treemaptoggle-btn.active {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 20px;
+}
+
+.treemaptoggle-btn .material-icons-outlined {
+    margin-right: 5px;
+}
+
+/*line chart more details button*/
+.expand-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.expand-button:hover {
+    background-color: #45a049; /* Darker green */
+}
+
+/*Stacked Bar Chart related*/
+.expanded-chart-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.expanded-chart-content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 40px; /* Decrease the padding */
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 800px; /* Decrease the width */
+    height: 450px; /* Decrease the height */
+}
+
+.expanded-chart-dismiss-button {
+    position: absolute;
+    bottom: 40px; /* Adjust the distance from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #04a9b2;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    align-self: flex-end;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.expanded-chart-title {
+    margin-bottom: 0px;
+    text-align: center;
+    font-family: 'Be Vietnam', sans-serif;
+    font-size: medium;
+    color: rgb(65, 65, 65);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
