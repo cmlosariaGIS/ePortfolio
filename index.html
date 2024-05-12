@@ -532,6 +532,13 @@
                         </label>
                     </div>
                     <div class="checkbox-container">
+                        <span class="label-text">Non-profit Organizations</span>
+                        <label>
+                            <input type="checkbox" name="client-type" value="Non-profit Organizations">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="checkbox-container">
                         <span class="label-text">Private</span>
                         <label>
                             <input type="checkbox" name="client-type" value="Private">
@@ -707,17 +714,17 @@
         data.forEach(({ lat, lng, projectName, country, location, title, startDate, completionDate, partner, client, description, projectValue, projectScale, status, sector1, sector2, photo1, photo2, attachment }) => {
             const popupContent = `
     <h2>${projectName}<br></h2>
+    <b>Sector:</b> ${sector1}, ${sector2}<br>
     <b>Country:</b> ${country}<br>
     <b>Location:</b> ${location}<br>
     <b>Start Date:</b> ${startDate}<br>
     <b>Completion Date:</b> ${completionDate}<br>
-    <b>Partner(s):</b> ${partner}<br>
+    <b>Employment Status:</b> ${status}<br>
+    <b>Deployment:</b> ${partner}<br>
     <b>Client:</b> ${client}<br>
     <b>Description:</b><div style="text-align: justify;">${description}</div>
     <!--<b>Project Value ($):</b> ${projectValue}<br>-->
-    <b>Project Scale:</b> ${projectScale}ha<br>
-    <b>Status:</b> ${status}<br>
-    <b>Sector:</b> ${sector1}, ${sector2}<br>
+    <!--<b>Project Scale:</b> ${projectScale}ha<br>-->
     <p></p>
     <p style="font-size: 10px;"><i>Note: Project pinned location is indicative only</i></p>
     <div class="image-container">
@@ -738,7 +745,6 @@
         </button>
     </a>
 </div>
-
         <span class="material-icons-outlined close-button" onclick="closePopup()">
             highlight_off
         </span>
