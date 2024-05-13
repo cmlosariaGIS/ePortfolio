@@ -4,7 +4,6 @@ function toggleSlideMenu() {
     slideMenu.classList.toggle("active");
 }
 
-
 // Function to get selected categories
 function getSelectedCategories() {
     var selectedCategories = [];
@@ -38,8 +37,6 @@ function clearClientSelection() {
     $('input[name="client-type"]').prop('checked', false);
 }
 
-
-
 // Function to get selected status types
 function getSelectedStatusTypes() {
     var selectedStatusTypes = [];
@@ -54,11 +51,7 @@ function clearStatusSelection() {
     $('input[name="status-type"]').prop('checked', false);
 }
 
-
-
-
-
-/*Checkbox related functions*/
+/*Checkbox related  functions*/
 document.addEventListener('DOMContentLoaded', function () {
     const checkboxes = document.querySelectorAll('.checkbox-container input[type="checkbox"]');
 
@@ -106,37 +99,28 @@ function toggleOptionsCheckboxes(mainCheckboxValue, relatedCheckboxes) {
     });
 }
 
-/*function toggleArchitectureCheckbox() {
-    toggleCheckboxValue('Architecture', ['Landscape Architecture and Design', 'Building Architecture']);
-}
-
-function toggleArchitectureOptions() {
-    toggleOptionsCheckboxes('Architecture', ['Landscape Architecture and Design', 'Building Architecture']);
-}
-
-function toggleConservationCheckbox() {
-    toggleCheckboxValue('Conservation', ['Heritage Site Conservation', 'Urban Conservation and Redevelopment']);
-}
-
-function toggleConservationOptions() {
-    toggleOptionsCheckboxes('Conservation', ['Heritage Site Conservation', 'Urban Conservation and Redevelopment']);
-}*/
-
 function toggleGISCheckbox() {
-    toggleCheckboxValue('GIS', ['Cartography','Spatial Analysis', 'Spatial Data Extraction', 'Web GIS App Development']);
+    toggleCheckboxValue('GIS', ['Cartography','GIS Capacity Building', 'Spatial Analysis', 'Spatial Data Extraction', 'Web GIS App Development']);
 }
 
 function toggleGISOptions() {
-    toggleOptionsCheckboxes('GIS', ['Cartography','Spatial Analysis', 'Spatial Data Extraction', 'Web GIS App Development']);
+    toggleOptionsCheckboxes('GIS', ['Cartography','GIS Capacity Building', 'Spatial Analysis', 'Spatial Data Extraction', 'Web GIS App Development']);
 }
 
-
 function togglePlanningCheckbox() {
-    toggleCheckboxValue('Planning', ['Business Park/High-tech Park/Industrial Park Planning','Infrastructure Planning/Design', 'Regional and Provincial Planning', 'Urban Planning']);
+    toggleCheckboxValue('Planning', ['Regional and Provincial Planning', 'Urban Planning']);
 }
 
 function togglePlanningOptions() {
-    toggleOptionsCheckboxes('Planning', ['Business Park/High-tech Park/Industrial Park Planning','Infrastructure Planning/Design', 'Regional and Provincial Planning', 'Urban Planning']);
+    toggleOptionsCheckboxes('Planning', ['Regional and Provincial Planning', 'Urban Planning']);
+}
+
+function toggleUtilitiesCheckbox() {
+    toggleCheckboxValue('Utilities', ['Electric Transmission', 'Water Utilities', 'Wastewater Utilities']);
+}
+
+function toggleUtilitiesOptions() {
+    toggleOptionsCheckboxes('Utilities', ['Electric Transmission', 'Water Utilities', 'Wastewater Utilities']);
 }
 
 function toggleWaterManagementCheckbox() {
@@ -151,22 +135,22 @@ function toggleWaterManagementOptions() {
 // Function to initialize the year slider
 $("#year-slider").slider({
     range: true,
-    min: 2010,
-    max: 2024,
-    values: [2010, 2024],
+    min: 2014,
+    max: 2025,
+    values: [2014, 2025],
     slide: function (event, ui) {
         $("#year-range").text(ui.values[0] + " - " + ui.values[1]);
     },
     create: function () {
         // Add tick indicators
-        for (let i = 2010; i <= 2024; i++) {
-            $("<div>").addClass("tick").css("left", (i - 2010) * (100 / 7) + "%").appendTo($("#year-slider"));
+        for (let i = 2014; i <= 2025; i++) {
+            $("<div>").addClass("tick").css("left", (i - 2014) * (100 / 7) + "%").appendTo($("#year-slider"));
         }
     }
 });
 
 // Update current year label
-$("#current-year").text("Years selected: 2010 - 2024");
+$("#current-year").text("Years selected: 2014 - 2025");
 
 $("#year-slider").on("slide", function (event, ui) {
     if (ui.values[0] === ui.values[1]) {
@@ -175,7 +159,7 @@ $("#year-slider").on("slide", function (event, ui) {
         $("#current-year").text("Years selected: " + ui.values[0] + " - " + ui.values[1]);
     }
     $(".year-label").each(function () {
-        $(this).css("left", (ui.values[0] - 2010) * (100 / 7) + "%");
+        $(this).css("left", (ui.values[0] - 2014) * (100 / 7) + "%");
     });
 });
 
@@ -194,9 +178,9 @@ $(function () {
 
     // Initial display of values
     $("#current-projectValue").html("$0 - $500,000");
-});*/
+});
 
-/*$(function () {
+$(function () {
     $("#projectScale-slider").slider({
         range: true,
         min: 0,
@@ -212,13 +196,11 @@ $(function () {
     $("#current-projectScale").html("0ha - 100,000ha");
 });*/
 
-
 /*** RESET FILTERS BUTTON **/
-
 // Function to reset the year slider
 function resetYearSlider() {
-    $("#year-slider").slider("values", [2010, 2024]);
-    $("#current-year").text("Years selected: 2010 - 2024");
+    $("#year-slider").slider("values", [2014, 2025]);
+    $("#current-year").text("Years selected: 2014 - 2025");
 }
 
 /*
@@ -227,16 +209,13 @@ function resetProjectValueSlider() {
     $("#projectValue-slider").slider("values", [0, 500000]);
     $("#current-projectValue").text("$0 - $500,000");
 }
-*/
 
-/*
 // Function to reset the project scale slider
 function resetProjectScaleSlider() {
     $("#projectScale-slider").slider("values", [0, 100000]);
     $("#current-projectScale").html("0ha - 100,000ha");
-}*/
-
-
+}
+*/
 // Function to display initial points on the map on Reset Button click
 function displayInitialPoints() {
     data.forEach(function (project) {
@@ -284,7 +263,6 @@ function displayInitialPoints() {
     });
 }
 
-
 /*** RESET FILTERS BUTTON **/
 // Function to reset filters
 function resetFilters() {
@@ -293,28 +271,38 @@ function resetFilters() {
     clearClientSelection();
     clearStatusSelection();
     resetYearSlider();
-    /*resetProjectValueSlider();
-    resetProjectScaleSlider();*/
-    
+    //resetProjectValueSlider();
+    //resetProjectScaleSlider();
+
     // Remove existing markers
     map.eachLayer(function (layer) {
         if (layer instanceof L.Marker) {
             map.removeLayer(layer);
         }
     });
-    
+
     // Hide no results message and result count
     hideNoResultsMessage();
     hideResultCount();
-    
+
     // Reset map view to initial extent
     map.setView([0.00, 0.00], 3);
-    
+
     // Display initial points
     displayInitialPoints();
 
     // Reset total projects count
     updateTotalProjectsCount(data.length);
+
+    // Reset the country and sector pie charts
+    resetCountryChart();
+    resetSectorChart();
+
+}
+
+// Function to reset the sector pie chart
+function resetSectorChart() {
+    updateSectorChart(data); // Reset the chart with original data
 }
 
 // Function to reset the country pie chart
@@ -326,9 +314,8 @@ function resetCountryChart() {
 $('.reset-filters-button').on('click', function () {
     resetFilters(); // Reset all filters
     resetCountryChart(); // Reset the country pie chart
+    resetSectorChart();
 });
-
-
 
 /*** APPLY FILTERS BUTTON **/
 // Function to display number of results
@@ -375,8 +362,7 @@ function zoomToFilteredPoints(filteredData) {
     }
 }
 
-
-/*
+/*** APPLY FILTERS BUTTON **/
 // Event listener for Apply Filters button
 $('.apply-filters-button').on('click', function () {
     // Get selected countries, categories, client types, status types, year range, project value range, and project scale range
@@ -391,130 +377,6 @@ $('.apply-filters-button').on('click', function () {
     var selectedYearRange = $("#year-slider").slider("option", "values");
     var selectedProjectValueRange = $("#projectValue-slider").slider("option", "values");
     var selectedProjectScaleRange = $("#projectScale-slider").slider("option", "values");
-
-    // Filter data based on selected criteria
-    var filteredData = data.filter(function (project) {
-        var startYear = new Date(project.startDate).getFullYear();
-        var completionYear = new Date(project.completionDate).getFullYear();
-        return (
-            (selectedCountries.length === 0 || selectedCountries.includes(project.country)) &&
-            (
-                selectedCategories.length === 0 ||
-                selectedCategories.includes(project.sector1) ||
-                selectedCategories.includes(project.sector2)
-            ) &&
-            (selectedClientTypes.length === 0 || selectedClientTypes.includes(project.clientType)) &&
-            (selectedStatusTypes.length === 0 || selectedStatusTypes.includes(project.status)) &&
-            ((startYear >= selectedYearRange[0] && startYear <= selectedYearRange[1]) ||
-                (completionYear >= selectedYearRange[0] && completionYear <= selectedYearRange[1])) &&
-            (project.projectValue >= selectedProjectValueRange[0] && project.projectValue <= selectedProjectValueRange[1]) &&
-            (project.projectScale >= selectedProjectScaleRange[0] && project.projectScale <= selectedProjectScaleRange[1])
-        );
-    });
-
-    // Update total projects count
-    updateTotalProjectsCount(filteredData.length);
-
-    // Call downloadAttachmentsAsZip with filtered data
-    // downloadAttachmentsAsZip(filteredData);
-
-    // Check if filtered data is empty
-    if (filteredData.length === 0) {
-        displayNoResultsMessage();
-        hideResultCount(); // hide result count if no results
-    } else {
-        hideNoResultsMessage();
-        displayResultCount(filteredData.length); // display result count if there are results
-    }
-
-    // Remove existing markers
-    map.eachLayer(function (layer) {
-        if (layer instanceof L.Marker) {
-            map.removeLayer(layer);
-        }
-    });
-
-    // Add markers for filtered data
-    filteredData.forEach(function (project) {
-        const popupContent = `
-            <h2>${project.projectName}<br></h2>
-            <b>Country:</b> ${project.country}<br>
-            <b>Location:</b> ${project.location}<br>
-            <b>Start Date:</b> ${project.startDate}<br>
-            <b>Completion Date:</b> ${project.completionDate}<br>
-            <b>Partner(s):</b> ${project.partner}<br>
-            <b>Client:</b> ${project.client}<br>
-            <b>Description:</b><div style="text-align: justify;">${project.description}</div>
-            <!-- <b>Project Value ($):</b> ${project.projectValue}<br> -->
-            <b>Project Scale:</b> ${project.projectScale}ha<br>
-            <b>Status:</b> ${project.status}<br>
-            <b>Sector:</b> ${project.sector1}, ${project.sector2}<br>
-            <p></p>
-            <p style="font-size: 10px;"><i>Note: Project pinned location is indicative only</i></p>
-            <div class="image-container">
-                <a href="${project.photo1}" target="_blank">
-                    <img src="${project.photo1}" class="popup-image" id="popup-image">
-                </a>
-            </div>
-            <div class="button-container">
-                <div class="nav-buttons">
-                    <button class="prev-button" onclick="prevImage('${project.photo1}', '${project.photo2}')" title="Show previous image">navigate_before</button>
-                    <button class="next-button" onclick="nextImage('${project.photo1}', '${project.photo2}')" title="Show next image">navigate_next</button>
-                </div>
-                <div>
-                    <a href="${project.attachment}" target="_blank" style="text-decoration: none;">
-                        <button class="download-button" style="display: flex; align-items: center;">
-                            <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">description</span>
-                            <span style="margin-left: 5px; vertical-align: middle; margin-top: -3px;">Download Project Sheet</span>
-                        </button>
-                    </a>
-                </div>
-                <span class="material-icons-outlined close-button" onclick="closePopup()">
-                    highlight_off
-                </span>
-            </div>
-        `;
-        const marker = L.marker([project.lat, project.lng], { icon: customIcon }).addTo(map);
-        marker.bindPopup(popupContent, { maxWidth: 300 });
-    });
-
-    // Zoom the map to the extent of the filtered points/markers
-    zoomToFilteredPoints(filteredData);
-
-    var selectedCategories = getSelectedCategories();
-    var selectedClientTypes = getSelectedClientTypes();
-    var selectedStatusTypes = getSelectedClientTypes();
-    var selectedYearRange = $("#year-slider").slider("option", "values");
-    var selectedProjectValue = $("#projectValue-slider").slider("option", "values");
-    var selectedProjectScale = $("#projectScale-slider").slider("option", "values");
-
-    console.log("Selected Countries:", selectedCountries);
-    console.log("Selected Categories:", selectedCategories);
-    console.log("Selected Client Types:", selectedClientTypes);
-    console.log("Selected Status Types:", selectedStatusTypes);
-    console.log("Selected Year Range:", selectedYearRange);
-    console.log("Selected Project Value Range:", selectedProjectValue[0] + " - " + selectedProjectValue[1]);
-    console.log("Selected Project Scale Range:", selectedProjectScale[0] + "ha - " + selectedProjectScale[1] + "ha");
-
-});*/
-
-
-
-/*** APPLY FILTERS BUTTON **/
-// Event listener for Apply Filters button
-$('.apply-filters-button').on('click', function () {
-    // Get selected countries, categories, client types, status types, year range, project value range, and project scale range
-    var selectedCountries = [];
-    $('input[name="country"]:checked').each(function () {
-        selectedCountries.push($(this).val());
-    });
-
-    var selectedCategories = getSelectedCategories();
-    var selectedClientTypes = getSelectedClientTypes();
-    var selectedStatusTypes = getSelectedStatusTypes();
-    var selectedYearRange = $("#year-slider").slider("option", "values");
-    /*var selectedProjectValueRange = $("#projectValue-slider").slider("option", "values");
-    var selectedProjectScaleRange = $("#projectScale-slider").slider("option", "values");*/
 
     // Filter data based on selected criteria
     var filteredData = data.filter(function (project) {
@@ -605,8 +467,9 @@ $('.apply-filters-button').on('click', function () {
     // Zoom the map to the extent of the filtered points/markers
     zoomToFilteredPoints(filteredData);
 
-    // Update the country chart with filtered data
+    // Update the country and sector pie charts with filtered data
     updateCountryChart(filteredData);
+    updateSectorChart(filteredData);
 
     var selectedCategories = getSelectedCategories();
     var selectedClientTypes = getSelectedClientTypes();
@@ -615,12 +478,12 @@ $('.apply-filters-button').on('click', function () {
     /*var selectedProjectValue = $("#projectValue-slider").slider("option", "values");
     var selectedProjectScale = $("#projectScale-slider").slider("option", "values");*/
 
+    // Logging selected filter options
     console.log("Selected Countries:", selectedCountries);
     console.log("Selected Categories:", selectedCategories);
     console.log("Selected Client Types:", selectedClientTypes);
     console.log("Selected Status Types:", selectedStatusTypes);
     console.log("Selected Year Range:", selectedYearRange);
-    /*console.log("Selected Project Value Range:", selectedProjectValue[0] + " - " + selectedProjectValue[1]);
-    console.log("Selected Project Scale Range:", selectedProjectScale[0] + "ha - " + selectedProjectScale[1] + "ha");*/
-
+    /*console.log("Selected Project Value Range:", selectedProjectValueRange[0] + " - " + selectedProjectValueRange[1]);
+    console.log("Selected Project Scale Range:", selectedProjectScaleRange[0] + "ha - " + selectedProjectScaleRange[1] + "ha");*/
 });

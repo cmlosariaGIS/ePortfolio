@@ -3,9 +3,9 @@ function downloadExcel() {
     var filtersApplied = $('input[name="country"]:checked').length > 0 ||
         $('input[name="category"]:checked').length > 0 ||
         $('input[name="client-type"]:checked').length > 0 ||
-        ($("#year-slider").slider("values")[0] !== 2018 || $("#year-slider").slider("values")[1] !== 2024) ||
-        ($("#projectValue-slider").slider("values")[0] !== 0 || $("#projectValue-slider").slider("values")[1] !== 500000) ||
-        ($("#projectScale-slider").slider("values")[0] !== 0 || $("#projectScale-slider").slider("values")[1] !== 100000);
+        ($("#year-slider").slider("values")[0] !== 2014 || $("#year-slider").slider("values")[1] !== 2024) //||
+        //($("#projectValue-slider").slider("values")[0] !== 0 || $("#projectValue-slider").slider("values")[1] !== 500000) ||
+        //($("#projectScale-slider").slider("values")[0] !== 0 || $("#projectScale-slider").slider("values")[1] !== 100000);
 
     if (filtersApplied) {
         // If filters applied, download Excel table for filtered data
@@ -20,9 +20,9 @@ function downloadExcel() {
                 ) &&
                 ($('input[name="client-type"]:checked').length === 0 || $('input[name="client-type"]:checked').toArray().some(t => t.value === project.clientType)) &&
                 ((startYear >= $("#year-slider").slider("values")[0] && startYear <= $("#year-slider").slider("values")[1]) ||
-                    (completionYear >= $("#year-slider").slider("values")[0] && completionYear <= $("#year-slider").slider("values")[1])) &&
-                (project.projectValue >= $("#projectValue-slider").slider("values")[0] && project.projectValue <= $("#projectValue-slider").slider("values")[1]) &&
-                (project.projectScale >= $("#projectScale-slider").slider("values")[0] && project.projectScale <= $("#projectScale-slider").slider("values")[1])
+                    (completionYear >= $("#year-slider").slider("values")[0] && completionYear <= $("#year-slider").slider("values")[1])) //&&
+                //(project.projectValue >= $("#projectValue-slider").slider("values")[0] && project.projectValue <= $("#projectValue-slider").slider("values")[1]) &&
+                //(project.projectScale >= $("#projectScale-slider").slider("values")[0] && project.projectScale <= $("#projectScale-slider").slider("values")[1])
             );
         });
 
@@ -45,13 +45,13 @@ function createExcelTable(data, fileName) {
         "Partner(s)",
         "Client",
         "Description",
-        "Project Value ($)",
-        "Project Scale (ha)",
+        //"Project Value ($)",
+        //"Project Scale (ha)",
         "Status",
         "Sector",
         "Photo1",
         "Photo2",
-        "Attachment"
+        //"Attachment"
     ];
 
     // Extract data for each row

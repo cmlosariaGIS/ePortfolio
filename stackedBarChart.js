@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const years = Array.from(new Set(data.map(item => {
         const yearMatch = item.startDate.match(/\d{4}/); // Match 4-digit year
         return yearMatch ? parseInt(yearMatch[0]) : null; // Extract the matched year or return null
-    }).filter(year => year && year >= 2010 && year <= 2024))); // Filter out null values and years outside the range
+    }).filter(year => year && year >= 2018 && year <= 2024))); // Filter out null values and years outside the range
     
     years.sort((a, b) => a - b); // Sort years in ascending order
 
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     stacked: true,
                     title: {
                         display: true,
-                        text: 'Year',
+                        text: 'Years',
                         font: {
                             weight: 'bold' // Make the X-axis label bold
                         }
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     stacked: true,
                     title: {
                         display: true,
-                        text: 'Number of Projects',
+                        text: 'Projects',
                         font: {
                             weight: 'bold' // Make the Y-axis label bold
                         }

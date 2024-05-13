@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Charlemagne Losaria Projects Web Map</title>
+    <title>enCity Projects Tracker Web Map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./style.css">
@@ -32,16 +31,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.3/xlsx.full.min.js"></script>
     <script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
 
-
     <!--FileSaver-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
     <!--ChartJS-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-treemap"></script>
-
-
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 </head>
 
@@ -148,14 +143,14 @@
                 <span class="tooltip">Download Project List as Excel Table</span>
             </div>
 
-            <div class="tooltip-container">
+            <!--<div class="tooltip-container">
                 <button class="downloadProjSheetsAsZip-button" onclick="downloadAttachmentsAsZip()">
                     <span class="material-symbols-outlined" style="vertical-align: middle;">download</span>
                     <span style="vertical-align: middle; margin-left: 0px;"><span
                             class="material-symbols-outlined">folder_zip</span></span>
                 </button>
                 <span class="tooltip">Download Project Sheet(s)</span>
-            </div>
+            </div>-->
         </div>
     </div>
 
@@ -213,8 +208,6 @@
         </div>
     </div>
 
-
-
     <!--Stacked Bar Modal Window-->
     <div id="expandedChartModal" class="expanded-chart-modal">
         <div class="expanded-chart-content">
@@ -224,296 +217,324 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-    <!--Filter Projects-->
-    <div id="slideMenu" class="slide-menu">
-        <div class="slide-menu-content">
-            <span class="material-icons-outlined slide-menu-close" onclick="toggleSlideMenu()">close</span>
+   <!--Filter Projects-->
+   <div id="slideMenu" class="slide-menu">
+    <div class="slide-menu-content">
+        <span class="material-icons-outlined slide-menu-close" onclick="toggleSlideMenu()">close</span>
+        <div class="filter-country" style="font-size: 12px;">
             <div class="filter-country" style="font-size: 12px;">
-                <div class="filter-country" style="font-size: 12px;">
-                    <span class="filter-title" style="display: flex; align-items: center;">
-                        <span class="material-symbols-outlined" style="margin-right: 5px;">globe_asia</span>
-                        <span style="padding-right: 10px;">Select Country</span>
-                        <span style="flex-grow: 1;"></span>
-                        <button class="clear-countrySelection-button" onclick="clearCountrySelection()">Clear
-                            Selection</button>
-                    </span>
+                <span class="filter-title" style="display: flex; align-items: center;">
+                    <span class="material-symbols-outlined" style="margin-right: 5px;">globe_asia</span>
+                    <span style="padding-right: 10px;">Select Country</span>
+                    <span style="flex-grow: 1;"></span>
+                    <button class="clear-countrySelection-button" onclick="clearCountrySelection()">Clear
+                        Selection</button>
+                </span>
 
-                    <div>
-                        <div class="checkbox-container">
-                            <label>
-                                <input type="checkbox" id="country-australia" name="country" value="Australia">
-                                <span class="checkmark"></span>
-                            </label>
-                            <img src="https://i.ibb.co/bdM1L30/icons8-australia-48.png" alt="Australia Icon"
-                                style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">
-                            <span class="label-text">Australia</span>
-                        </div>
-
-                        <div class="checkbox-container">
-                            <label>
-                                <input type="checkbox" id="country-india" name="country" value="India">
-                                <span class="checkmark"></span>
-                            </label>
-                            <img src="https://i.ibb.co/yBpcHk2/icons8-india-48.png" alt="India Icon"
-                                style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">
-                            <span class="label-text">India</span>
-                        </div>
-
-                        <div class="checkbox-container">
-                            <label>
-                                <input type="checkbox" id="country-vietnam" name="country" value="Vietnam">
-                                <span class="checkmark"></span>
-                            </label>
-                            <img src="https://i.ibb.co/qjTZbtV/icons8-vietnam-48.png" alt="Vietnam Icon"
-                                style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">
-                            <span class="label-text">Vietnam</span>
-                        </div>
-
-                        <div class="checkbox-container">
-                            <label>
-                                <input type="checkbox" id="country-philippines" name="country" value="Philippines">
-                                <span class="checkmark"></span>
-                            </label>
-                            <img src="https://i.ibb.co/ykcj2B4/icons8-philippines-48.png" alt="Philippines Icon"
-                                style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">
-                            <span class="label-text">Philippines</span>
-                        </div>
-
-                        <div class="checkbox-container">
-                            <label>
-                                <input type="checkbox" id="country-saudi-arabia" name="country" value="Saudi Arabia">
-                                <span class="checkmark"></span>
-                            </label>
-                            <img src="https://i.ibb.co/dMBLw1h/icons8-saudi-arabia-48.png" alt="Saudi Arabia Icon"
-                                style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">
-                            <span class="label-text">Saudi Arabia</span>
-                        </div>
-
-                        <div class="checkbox-container">
-                            <label>
-                                <input type="checkbox" id="country-usa" name="country" value="USA">
-                                <span class="checkmark"></span>
-                            </label>
-                            <img src="https://i.ibb.co/g3hSdcW/icons8-usa-48.png" alt="USA Icon"
-                                style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">
-                            <span class="label-text">USA</span>
-                        </div>
-
+                <div>
+                    <div class="checkbox-container">
+                        <label>
+                            <input type="checkbox" id="country-australia" name="country" value="Australia">
+                            <span class="checkmark"></span>
+                        </label>
+                        <img src="https://i.ibb.co/bdM1L30/icons8-australia-48.png" alt="Australia Icon"
+                            style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">
+                        <span class="label-text">Australia</span>
                     </div>
+
+                    <div class="checkbox-container">
+                        <label>
+                            <input type="checkbox" id="country-india" name="country" value="India">
+                            <span class="checkmark"></span>
+                        </label>
+                        <img src="https://i.ibb.co/yBpcHk2/icons8-india-48.png" alt="India Icon"
+                            style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">
+                        <span class="label-text">India</span>
+                    </div>
+
+                    <div class="checkbox-container">
+                        <label>
+                            <input type="checkbox" id="country-vietnam" name="country" value="Vietnam">
+                            <span class="checkmark"></span>
+                        </label>
+                        <img src="https://i.ibb.co/qjTZbtV/icons8-vietnam-48.png" alt="Vietnam Icon"
+                            style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">
+                        <span class="label-text">Vietnam</span>
+                    </div>
+
+                    <div class="checkbox-container">
+                        <label>
+                            <input type="checkbox" id="country-philippines" name="country" value="Philippines">
+                            <span class="checkmark"></span>
+                        </label>
+                        <img src="https://i.ibb.co/ykcj2B4/icons8-philippines-48.png" alt="Philippines Icon"
+                            style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">
+                        <span class="label-text">Philippines</span>
+                    </div>
+
+                    <div class="checkbox-container">
+                        <label>
+                            <input type="checkbox" id="country-saudi-arabia" name="country" value="Saudi Arabia">
+                            <span class="checkmark"></span>
+                        </label>
+                        <img src="https://i.ibb.co/dMBLw1h/icons8-saudi-arabia-48.png" alt="Saudi Arabia Icon"
+                            style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">
+                        <span class="label-text">Saudi Arabia</span>
+                    </div>
+
+                    <div class="checkbox-container">
+                        <label>
+                            <input type="checkbox" id="country-usa" name="country" value="USA">
+                            <span class="checkmark"></span>
+                        </label>
+                        <img src="https://i.ibb.co/g3hSdcW/icons8-usa-48.png" alt="USA Icon"
+                            style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;">
+                        <span class="label-text">USA</span>
+                    </div>
+
                 </div>
+            </div>
 
-                <div class="filter-category" style="font-size: 12px;">
-                    <span class="filter-title" style="display: flex; align-items: center;">
-                        <span class="material-symbols-outlined" style="margin-right: 5px;">category</span>
-                        <span style="padding-right: 10px;">Select Project Category</span>
-                        <span style="flex-grow: 1;"></span>
-                        <button class="clear-categorySelection-button" onclick="clearCategorySelection()">Clear
-                            Selection</button>
-                    </span>
+            <div class="filter-category" style="font-size: 12px;">
+                <span class="filter-title" style="display: flex; align-items: center;">
+                    <span class="material-symbols-outlined" style="margin-right: 5px;">category</span>
+                    <span style="padding-right: 10px;">Select Project Category</span>
+                    <span style="flex-grow: 1;"></span>
+                    <button class="clear-categorySelection-button" onclick="clearCategorySelection()">Clear
+                        Selection</button>
+                </span>
 
-                    <div>
+                <div>
+                    <div class="checkbox-container">
+                        <span class="label-text">Agriculture</span>
+                        <label>
+                            <input type="checkbox" name="category" value="Agriculture">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+                    <div class="checkbox-container">
+                        <span class="label-text">Climate Resilience</span>
+                        <label>
+                            <input type="checkbox" name="category" value="Climate Resilience">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+                    <!-- GIS Options -->
+                    <div class="checkbox-container">
+                        <span class="label-text">Geographic Information System</span>
+                        <label>
+                            <input type="checkbox" name="category" value="GIS" style="margin-right: 5px;" onclick="toggleGISOptions()">
+                            <span class="checkmark"></span>
+                        </label>
+                        <span class="material-symbols-outlined gis-expand-icon expand-icon" onclick="toggleOptions('gisOptions', '.gis-expand-icon')" style="margin-left: 5px;">expand_more</span>
+                    </div>
+                    
+                    <div id="gisOptions" class="expandable-options" style="max-height: 0px; margin-left: 20px;">
                         <div class="checkbox-container">
-                            <span class="label-text">Agriculture</span>
+                            <span class="label-text">Cartography</span>
                             <label>
-                                <input type="checkbox" name="category" value="Agriculture">
+                                <input type="checkbox" name="category" value="Cartography" onclick="toggleGISCheckbox()">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
-
-                        <!-- GIS Options -->
                         <div class="checkbox-container">
-                            <span class="label-text">Geographic Information System</span>
+                            <span class="label-text">GIS Capacity Building</span>
                             <label>
-                                <input type="checkbox" name="category" value="Geographic Information System"
-                                    style="margin-right: 5px;" onclick="toggleGISOptions()">
-                                <span class="checkmark"></span>
-                            </label>
-                            <span class="material-symbols-outlined gis-expand-icon expand-icon"
-                                onclick="toggleOptions('gisOptions', '.gis-expand-icon')"
-                                style="margin-left: 5px;">expand_more</span>
-                        </div>
-
-                        <div id="gisOptions" class="expandable-options" style="max-height: 0px; margin-left: 20px;">
-                            <div class="checkbox-container">
-                                <span class="label-text">Cartography</span>
-                                <label>
-                                    <input type="checkbox" name="category" value="Cartography"
-                                        onclick="toggleGISCheckbox()">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-
-                            <div class="checkbox-container">
-                                <span class="label-text">GIS Capacity Building</span>
-                                <label>
-                                    <input type="checkbox" name="category" value="GIS Capacity Building"
-                                        onclick="toggleGISCheckbox()">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-
-                            <div class="checkbox-container">
-                                <span class="label-text">Spatial Analysis</span>
-                                <label>
-                                    <input type="checkbox" name="category" value="Spatial Analysis"
-                                        onclick="toggleGISCheckbox()">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-
-                            <div class="checkbox-container">
-                                <span class="label-text">Spatial Data Extraction</span>
-                                <label>
-                                    <input type="checkbox" name="category" value="Spatial Data Extraction"
-                                        onclick="toggleGISCheckbox()">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-container">
-                                <span class="label-text">Web GIS App Development</span>
-                                <label>
-                                    <input type="checkbox" name="category" value="Web GIS App Development"
-                                        onclick="toggleGISCheckbox()">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!--Planning Options-->
-                        <div class="checkbox-container">
-                            <span class="label-text">Planning</span>
-                            <label>
-                                <input type="checkbox" name="category" value="Planning" style="margin-right: 5px;"
-                                    onclick="togglePlanningOptions()">
-                                <span class="checkmark"></span>
-                            </label>
-                            <span class="material-symbols-outlined planning-expand-icon expand-icon"
-                                onclick="toggleOptions('planningOptions', '.planning-expand-icon')"
-                                style="margin-left: 5px;">expand_more</span>
-                        </div>
-                        <div id="planningOptions" class="expandable-options"
-                            style="max-height: 0px; margin-left: 20px;">
-                            <div class="checkbox-container">
-                                <span class="label-text">Business Park/High-tech Park/Industrial Park Planning</span>
-                                <label>
-                                    <input type="checkbox" name="category"
-                                        value="Business Park/High-tech Park/Industrial Park Planning"
-                                        onclick="togglePlanningCheckbox()">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-container">
-                                <span class="label-text">Infrastructure Planning/Design</span>
-                                <label>
-                                    <input type="checkbox" name="category" value="Infrastructure Planning/Design"
-                                        onclick="togglePlanningCheckbox()">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-container">
-                                <span class="label-text">Regional and Provincial Planning</span>
-                                <label>
-                                    <input type="checkbox" name="category" value="Regional and Provincial Planning"
-                                        onclick="togglePlanningCheckbox()">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkbox-container">
-                                <span class="label-text">Urban Planning</span>
-                                <label>
-                                    <input type="checkbox" name="category" value="Urban Planning"
-                                        onclick="togglePlanningCheckbox()">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="checkbox-container">
-                            <span class="label-text">Real Estate</span>
-                            <label>
-                                <input type="checkbox" name="category" value="Real Estate">
+                                <input type="checkbox" name="category" value="GIS Capacity Building" onclick="toggleGISCheckbox()">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
-
-
-                    </div>
-                    <div class="checkbox-container">
-                        <span class="label-text">Research</span>
-                        <label>
-                            <input type="checkbox" name="category" value="Research">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                    <div class="checkbox-container">
-                        <span class="label-text">Sustainable Development</span>
-                        <label>
-                            <input type="checkbox" name="category" value="Sustainable Development">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                    <div class="checkbox-container">
-                        <span class="label-text">Technology</span>
-                        <label>
-                            <input type="checkbox" name="category" value="Technology">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                    <div class="checkbox-container">
-                        <span class="label-text">Transportation</span>
-                        <label>
-                            <input type="checkbox" name="category" value="Transportation">
-                            <span class="checkmark"></span>
-                        </label>
+                        <div class="checkbox-container">
+                            <span class="label-text">Spatial Analysis</span>
+                            <label>
+                                <input type="checkbox" name="category" value="Spatial Analysis" onclick="toggleGISCheckbox()">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="checkbox-container">
+                            <span class="label-text">Spatial Data Extraction</span>
+                            <label>
+                                <input type="checkbox" name="category" value="Spatial Data Extraction" onclick="toggleGISCheckbox()">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="checkbox-container">
+                            <span class="label-text">Web GIS App Development</span>
+                            <label>
+                                <input type="checkbox" name="category" value="Web GIS App Development" onclick="toggleGISCheckbox()">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
                     </div>
 
+
+                    <!--Planning Options-->
                     <div class="checkbox-container">
-                        <span class="label-text">Water Management</span>
+                        <span class="label-text">Planning</span>
                         <label>
-                            <input type="checkbox" name="category" value="Water Management" style="margin-right: 5px;"
-                                onclick="toggleWaterManagementOptions()">
+                            <input type="checkbox" name="category" value="Planning" style="margin-right: 5px;"
+                                onclick="togglePlanningOptions()">
                             <span class="checkmark"></span>
                         </label>
-                        <span class="material-symbols-outlined water-management-expand-icon expand-icon"
-                            onclick="toggleOptions('waterManagementOptions', '.water-management-expand-icon')"
+                        <span class="material-symbols-outlined planning-expand-icon expand-icon"
+                            onclick="toggleOptions('planningOptions', '.planning-expand-icon')"
                             style="margin-left: 5px;">expand_more</span>
                     </div>
-                    <div id="waterManagementOptions" class="expandable-options"
+                    <div id="planningOptions" class="expandable-options"
                         style="max-height: 0px; margin-left: 20px;">
                         <div class="checkbox-container">
-                            <span class="label-text">Coastal Resource Management</span>
+                            <span class="label-text">Regional and Provincial Planning</span>
                             <label>
-                                <input type="checkbox" name="category" value="Coastal Resource Management"
-                                    onclick="toggleWaterManagementCheckbox()">
+                                <input type="checkbox" name="category" value="Regional and Provincial Planning"
+                                    onclick="togglePlanningCheckbox()">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
                         <div class="checkbox-container">
-                            <span class="label-text">River and Lakes Management</span>
+                            <span class="label-text">Urban Planning</span>
                             <label>
-                                <input type="checkbox" name="category" value="River and Lakes Management"
-                                    onclick="toggleWaterManagementCheckbox()">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="checkbox-container">
-                            <span class="label-text">Flood Prevention</span>
-                            <label>
-                                <input type="checkbox" name="category" value="Flood Prevention"
-                                    onclick="toggleWaterManagementCheckbox()">
+                                <input type="checkbox" name="category" value="Urban Planning"
+                                    onclick="togglePlanningCheckbox()">
                                 <span class="checkmark"></span>
                             </label>
                         </div>
                     </div>
 
+                    <div class="checkbox-container">
+                        <span class="label-text">Real Estate</span>
+                        <label>
+                            <input type="checkbox" name="category" value="Real Estate">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
                 </div>
+
+                <div class="checkbox-container">
+                    <span class="label-text">Renewables</span>
+                    <label>
+                        <input type="checkbox" name="category" value="Renewables">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <div class="checkbox-container">
+                    <span class="label-text">Research</span>
+                    <label>
+                        <input type="checkbox" name="category" value="Research">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <div class="checkbox-container">
+                    <span class="label-text">Sustainable Development</span>
+                    <label>
+                        <input type="checkbox" name="category" value="Sustainable Development">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+                <div class="checkbox-container">
+                    <span class="label-text">Technology</span>
+                    <label>
+                        <input type="checkbox" name="category" value="Technology">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                
+                <div class="checkbox-container">
+                    <span class="label-text">Transportation</span>
+                    <label>
+                        <input type="checkbox" name="category" value="Transportation">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+
+
+                <div class="checkbox-container">
+                    <span class="label-text">Utilities</span>
+                    <label>
+                        <input type="checkbox" name="category" value="Utilities" style="margin-right: 5px;"
+                            onclick="toggleUtilitiesOptions()">
+                        <span class="checkmark"></span>
+                    </label>
+                    <span class="material-symbols-outlined utilities-expand-icon expand-icon"
+                        onclick="toggleOptions('utilitiesOptions', '.utilities-expand-icon')"
+                        style="margin-left: 5px;">expand_more</span>
+                </div>
+                <div id="utilitiesOptions" class="expandable-options"
+                    style="max-height: 0px; margin-left: 20px;">
+                    <div class="checkbox-container">
+                        <span class="label-text">Electric Transmission</span>
+                        <label>
+                            <input type="checkbox" name="category" value="Electric Transmission"
+                                onclick="toggleUtilitiesCheckbox()">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="checkbox-container">
+                        <span class="label-text">Water Utilities</span>
+                        <label>
+                            <input type="checkbox" name="category" value="Water Utilities"
+                                onclick="toggleUtilitiesCheckbox()">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="checkbox-container">
+                        <span class="label-text">Wastewater Utilities</span>
+                        <label>
+                            <input type="checkbox" name="category" value="Wastewater Utilities"
+                                onclick="toggleUtilitiesCheckbox()">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+
+
+
+                <div class="checkbox-container">
+                    <span class="label-text">Water Management</span>
+                    <label>
+                        <input type="checkbox" name="category" value="Water Management" style="margin-right: 5px;"
+                            onclick="toggleWaterManagementOptions()">
+                        <span class="checkmark"></span>
+                    </label>
+                    <span class="material-symbols-outlined water-management-expand-icon expand-icon"
+                        onclick="toggleOptions('waterManagementOptions', '.water-management-expand-icon')"
+                        style="margin-left: 5px;">expand_more</span>
+                </div>
+                <div id="waterManagementOptions" class="expandable-options"
+                    style="max-height: 0px; margin-left: 20px;">
+                    <div class="checkbox-container">
+                        <span class="label-text">Coastal Resource Management</span>
+                        <label>
+                            <input type="checkbox" name="category" value="Coastal Resource Management"
+                                onclick="toggleWaterManagementCheckbox()">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="checkbox-container">
+                        <span class="label-text">River and Lakes Management</span>
+                        <label>
+                            <input type="checkbox" name="category" value="River and Lakes Management"
+                                onclick="toggleWaterManagementCheckbox()">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="checkbox-container">
+                        <span class="label-text">Flood Prevention</span>
+                        <label>
+                            <input type="checkbox" name="category" value="Flood Prevention"
+                                onclick="toggleWaterManagementCheckbox()">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+
+
+
+            </div>
                 <div class="filter-client" style="font-size: 12px;">
                     <span class="filter-title" style="display: flex; align-items: center;">
                         <span class="material-symbols-outlined" style="margin-right: 5px;">handshake</span>
@@ -528,13 +549,6 @@
                         <span class="label-text">Government</span>
                         <label>
                             <input type="checkbox" name="client-type" value="Government">
-                            <span class="checkmark"></span>
-                        </label>
-                    </div>
-                    <div class="checkbox-container">
-                        <span class="label-text">Non-profit Organizations</span>
-                        <label>
-                            <input type="checkbox" name="client-type" value="Non-profit Organizations">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -592,6 +606,8 @@
                     <div id="current-year"></div>
                 </div>
 
+
+
                 <!--<div class="filter-projectValue">
                     <span class="filter-title" style="display: flex; align-items: center;">
                         <span class="material-symbols-outlined" style="margin-right: 5px;">payments</span>
@@ -611,6 +627,9 @@
                     <div id="projectScale-slider" class="slider"></div>
                     <div id="current-projectScale"></div>
                 </div>-->
+
+
+
 
                 <br>
                 <div class="button-container">
@@ -634,6 +653,7 @@
         </div>
     </div>
 
+    <!--<script src="encityProjects.js"></script>-->
     <script src="myProjects.js"></script>
     <script src="search.js"></script>
     <script src="filter.js"></script>
@@ -644,7 +664,7 @@
     <script src="stackedBarChart.js"></script>
     <script src="sectorPieChart.js"></script>
     <script src="countryPieChart.js"></script>
-    <script src="treeMap.js"></script>
+    <!--<script src="treeMap.js"></script>-->
 
     <script>
 
@@ -738,12 +758,12 @@
             <button class="next-button" onclick="nextImage('${photo1}', '${photo2}')" title="Show next image">navigate_next</button>
         </div>
         <div>
-    <a href="${attachment}" target="_blank" style="text-decoration: none;">
+    <!--<a href="${attachment}" target="_blank" style="text-decoration: none;">
         <button class="download-button" style="display: flex; align-items: center;">
             <span class="material-symbols-outlined" style="font-size: 18px;">description</span>
             <span style="margin-left: 5px; vertical-align: middle; margin-top: -3px;">Download Project Sheet</span>
         </button>
-    </a>
+    </a>-->
 </div>
         <span class="material-icons-outlined close-button" onclick="closePopup()">
             highlight_off
@@ -806,11 +826,6 @@
             const slideMenuStats = document.getElementById('slideMenuStats');
             slideMenuStats.classList.toggle('active');
         }
-
-
-
-
-
 
     </script>
 </body>
