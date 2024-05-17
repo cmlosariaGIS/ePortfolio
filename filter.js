@@ -144,7 +144,7 @@ $("#year-slider").slider({
     create: function () {
         // Add tick indicators
         for (let i = 2014; i <= 2025; i++) {
-            $("<div>").addClass("tick").css("left", (i - 2014) * (100 / 7) + "%").appendTo($("#year-slider"));
+            $("<div>").addClass("tick").css("left", (i - 2014) * (100 / 11) + "%").appendTo($("#year-slider"));
         }
     }
 });
@@ -229,7 +229,7 @@ function displayInitialPoints() {
             <b>Client:</b> ${project.client}<br>
             <b>Description:</b><div style="text-align: justify;">${project.description}</div>
             <!-- <b>Project Value ($):</b> ${project.projectValue}<br> -->
-            <b>Project Scale:</b> ${project.projectScale}ha<br>
+            <!--<b>Project Scale:</b> ${project.projectScale}ha<br>-->
             <b>Status:</b> ${project.status}<br>
             <b>Sector:</b> ${project.sector1}, ${project.sector2}<br>
             <p></p>
@@ -432,7 +432,7 @@ $('.apply-filters-button').on('click', function () {
             <b>Client:</b> ${project.client}<br>
             <b>Description:</b><div style="text-align: justify;">${project.description}</div>
             <!-- <b>Project Value ($):</b> ${project.projectValue}<br> -->
-            <b>Project Scale:</b> ${project.projectScale}ha<br>
+            <!--<b>Project Scale:</b> ${project.projectScale}ha<br>-->
             <b>Status:</b> ${project.status}<br>
             <b>Sector:</b> ${project.sector1}, ${project.sector2}<br>
             <p></p>

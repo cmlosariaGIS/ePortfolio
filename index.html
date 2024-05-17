@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>enCity Projects Tracker Web Map</title>
+    <title>Charlemagne's Projects Tracker Web Map</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./style.css">
@@ -196,7 +196,7 @@
             <canvas id="countryChart"></canvas>
             <div class="chart-legend-country"></div> <!-- Legend container for country chart -->
 
-            <!--<div class="divider"></div>--> <!-- Divider line -->
+            <div class="divider"></div> <!-- Divider line -->
             <!--<div class="section-title">Projects Sum Treemap</div>-->
             <!--<canvas id="treemapChart"></canvas>-->
             <!--<div class="chart-legend-treemap"></div>--> <!-- Legend container for treemap chart -->
@@ -412,17 +412,9 @@
                 </div>
 
                 <div class="checkbox-container">
-                    <span class="label-text">Renewables</span>
+                    <span class="label-text">Renewable Energy</span>
                     <label>
-                        <input type="checkbox" name="category" value="Renewables">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-
-                <div class="checkbox-container">
-                    <span class="label-text">Research</span>
-                    <label>
-                        <input type="checkbox" name="category" value="Research">
+                        <input type="checkbox" name="category" value="Renewable Energy">
                         <span class="checkmark"></span>
                     </label>
                 </div>
@@ -434,23 +426,6 @@
                         <span class="checkmark"></span>
                     </label>
                 </div>
-
-                <div class="checkbox-container">
-                    <span class="label-text">Technology</span>
-                    <label>
-                        <input type="checkbox" name="category" value="Technology">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-                
-                <div class="checkbox-container">
-                    <span class="label-text">Transportation</span>
-                    <label>
-                        <input type="checkbox" name="category" value="Transportation">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
-
 
                 <div class="checkbox-container">
                     <span class="label-text">Utilities</span>
@@ -493,7 +468,7 @@
 
 
 
-                <div class="checkbox-container">
+                <!--<div class="checkbox-container">
                     <span class="label-text">Water Management</span>
                     <label>
                         <input type="checkbox" name="category" value="Water Management" style="margin-right: 5px;"
@@ -530,7 +505,7 @@
                             <span class="checkmark"></span>
                         </label>
                     </div>
-                </div>
+                </div>-->
 
 
 
@@ -580,16 +555,16 @@
                 </div>
                 <div>
                     <div class="checkbox-container">
-                        <span class="label-text">Completed</span>
+                        <span class="label-text">Full-time</span>
                         <label>
-                            <input type="checkbox" name="status-type" value="Completed">
+                            <input type="checkbox" name="status-type" value="Full-time">
                             <span class="checkmark"></span>
                         </label>
                     </div>
                     <div class="checkbox-container">
-                        <span class="label-text">On-going</span>
+                        <span class="label-text">Project-based</span>
                         <label>
-                            <input type="checkbox" name="status-type" value="On-going">
+                            <input type="checkbox" name="status-type" value="Project-based">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -605,31 +580,6 @@
                     <div id="year-slider" class="slider"></div>
                     <div id="current-year"></div>
                 </div>
-
-
-
-                <!--<div class="filter-projectValue">
-                    <span class="filter-title" style="display: flex; align-items: center;">
-                        <span class="material-symbols-outlined" style="margin-right: 5px;">payments</span>
-                        Project Value
-                    </span>
-                    <p></p>
-                    <div id="projectValue-slider" class="slider"></div>
-                    <div id="current-projectValue"></div>
-                </div>
-
-                <div class="filter-projectScale">
-                    <span class="filter-title" style="display: flex; align-items: center;">
-                        <span class="material-symbols-outlined" style="margin-right: 5px;">square_foot</span>
-                        Project Scale
-                    </span>
-                    <p></p>
-                    <div id="projectScale-slider" class="slider"></div>
-                    <div id="current-projectScale"></div>
-                </div>-->
-
-
-
 
                 <br>
                 <div class="button-container">
@@ -664,7 +614,6 @@
     <script src="stackedBarChart.js"></script>
     <script src="sectorPieChart.js"></script>
     <script src="countryPieChart.js"></script>
-    <!--<script src="treeMap.js"></script>-->
 
     <script>
 
@@ -734,7 +683,7 @@
         data.forEach(({ lat, lng, projectName, country, location, title, startDate, completionDate, partner, client, description, projectValue, projectScale, status, sector1, sector2, photo1, photo2, attachment }) => {
             const popupContent = `
     <h2>${projectName}<br></h2>
-    <b>Sector:</b> ${sector1}, ${sector2}<br>
+
     <b>Country:</b> ${country}<br>
     <b>Location:</b> ${location}<br>
     <b>Start Date:</b> ${startDate}<br>
@@ -743,6 +692,7 @@
     <b>Deployment:</b> ${partner}<br>
     <b>Client:</b> ${client}<br>
     <b>Description:</b><div style="text-align: justify;">${description}</div>
+    <b>Sector:</b> ${sector1}, ${sector2}<br>
     <!--<b>Project Value ($):</b> ${projectValue}<br>-->
     <!--<b>Project Scale:</b> ${projectScale}ha<br>-->
     <p></p>
