@@ -481,6 +481,27 @@ const data = [
         "photo1": "https://i.ibb.co/jfPcNSc/Capture2.jpg",
         "photo2": "",
         "attachment": ""
+    },
+    {
+        "lat": 39.41922,
+        "lng": -111.950684,
+        "projectName": "Web Map Developer",
+        "country": "USA",
+        "location": "Utah",
+        "startDate": "Aug 2023",
+        "completionDate": "Till date",
+        "partner": "Remote",
+        "client": "Federalism Index Project",
+        "clientType": "Private",
+        "description": "Role as Web Map Developer to create engaging web maps to showcase various information on US Senate and Congress.",
+        "projectValue": "",
+        "projectScale": "",
+        "status": "Project-based",
+        "sector1": "GIS Web App Development",
+        "sector2": "Politics",
+        "photo1": "https://cdn.prod.website-files.com/6213793139128577f6ba751b/670aa3843d20ce5d4f0c86bd_Federalism%20Index%20Project.png",
+        "photo2": "",
+        "attachment": ""
     }
 ];
 
