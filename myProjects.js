@@ -525,8 +525,8 @@ const data = [
         "attachment": ""
     },
     {
-        "lat": 60.1282,
-        "lng": 18.6435,
+        "lat": 62,
+        "lng": 15,
         "projectName": "GIS Specialist",
         "country": "Sweden",
         "location": "",
@@ -546,8 +546,8 @@ const data = [
         "attachment": ""
     },
     {
-        "lat": 60.1282,
-        "lng": 18.6435,
+        "lat": 31,
+        "lng": 99,
         "projectName": "GIS Specialist",
         "country": "USA",
         "location": "Texas",
